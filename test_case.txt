@@ -1,0 +1,13 @@
+Using password
+1. Get the target host's IP address
+2. Try to log in to the target host using your username and host's IP (i.e., ssh <user>@<host>)
+3. If prompted for password, it means port 22 is working and SSH connection can be established
+4. Log in to the target host using your username and password to confirm successful connection
+
+Using key
+1. Get the target host's IP address
+2. Generate SSH public and private key pair using ssh-keygen
+3. Copy public key to target host using ssh-copy-id
+4. If copy is successful (i.e., "echo $?" returns "0"), SSH connection can be established
+5. Log in to the target host (i.e., ssh <user>@<host>) to confirm successful connection 
+
