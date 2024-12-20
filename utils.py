@@ -324,9 +324,9 @@ class DiskUtils:
 
     def cleanup(self) -> int:
         """Cleaning up work files and directories
-        
+
         Returns:
-            The exit code for the function 
+            The exit code for the function
         """
         print("Moving back to original location")
         try:

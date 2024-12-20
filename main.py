@@ -20,9 +20,13 @@ parser.add_argument("optical_drive", type=Path, default="/dev/sr0")
 parser.add_argument("optical_type", type=str, default="cd")
 args = parser.parse_args()
 if os.path.exists(args.optical_drive):
-    optical_drive = subprocess.run(
-        ["readlink", "-f", args.optical_drive], capture_output=True
-    ).stdout
+    try:
+        optical_drive = subprocess.run(
+            ["readlink", "-f", args.optical_drive], capture_output=True, check=True
+        ).stdout
+    except subprocess.CalledProcessError as e:
+        print(f"Command failed with exit code {e.returncode}")
+        print(e.stderr)
 if args.optical_type:
     optical_type = args.optical_type
 
