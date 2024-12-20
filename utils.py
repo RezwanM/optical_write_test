@@ -323,7 +323,11 @@ class DiskUtils:
         return GenericUtils.check_md5(self.md5sum_file)
 
     def cleanup(self) -> int:
-        """Cleaning up work files and directories"""
+        """Cleaning up work files and directories
+        
+        Returns:
+            The exit code for the function 
+        """
         print("Moving back to original location")
         try:
             subprocess.run(["cd", self.start_dir], capture_output=True, check=True)
